@@ -1,8 +1,8 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+import numpy as np #imports numpy and names as np
+import pandas as pd #imports pandas and names as pd
+import matplotlib.pyplot as plt #imports matplot and names as plt
 
-def combine_rows(data_frame, row_labels, name, drop=True):
+def combine_rows(data_frame, row_labels, name, drop=True): #function to combine rows, takes fram, labels, name as parameters, sets drop=T
     """
     Add rows together, drop them, return a new data frame
     """
@@ -36,7 +36,7 @@ for row_index in range(z.shape[0]):
 
 x = pd.DataFrame(z.values[rows,:-1],columns=z.columns[:-1],index=headings)
 
-print x
+print(x)
 
 x = combine_rows(x, ['Sidekiq MiniPCIe Sales', 'Sidekiq Sales - Other'], 'Sidekiq MiniPCIe Sales')
 x = combine_rows(x, x.index, 'Total', drop=False)
@@ -66,9 +66,9 @@ for row_label in x.index:
     if row_label not in report_set:
         x = x.drop(row_label)
 
-print x
+print(x)
 x[:-1].T.plot.bar(stacked=True)  # use [:-1] to omit "Total" column from stacked bar chart
 plt.grid()
-#savefig('dec15_through_nov16_sales.png')
+savefig.format('dec15_through_nov16_sales.png')
 x.to_excel('dec15_through_nov16_sales.xls')
 
